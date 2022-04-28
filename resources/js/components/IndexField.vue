@@ -29,7 +29,16 @@
       <span v-else>&mdash;</span>
     </span>
   </div>
-  <span v-else-if="!field.asHtml">{{ value }}</span>
+  <span v-else-if="!field.asHtml">{{
+
+        <Link
+          @click.stop
+          :href="$url(`/resources/${field.ResourceName}/${field.value}`)"
+          class="no-underline dim text-primary font-bold"
+        >
+          {{ field.value }}
+        </Link>
+  </span>
   <span v-else v-html="value"></span>
 </template>
 
