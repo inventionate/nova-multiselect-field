@@ -19,7 +19,7 @@
 
 <script>
 export default {
-  props: ['field', 'values'],
+  props: ['field', 'values', 'resourceName'],
 };
 </script>
 
