@@ -32,8 +32,9 @@
   <span v-else-if="!field.asHtml">
         <Link
           @click.stop
-          :href="$url(`/resources/${field.ResourceName}/${field.value}`)"
-          class="no-underline dim text-primary font-bold"
+            :href="$url(`/resources/${resourceName}/${Array.isArray(field.value) ? field.value[i]
+: field.value.replace(/[\[\]']+/g,'')}`)"
+            class="link-default"
         >
           {{ field.value }}
         </Link>
