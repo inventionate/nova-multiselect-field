@@ -20,7 +20,7 @@
     <span v-for="(value, i) of field.value" :key="i">
       <Link
         @click.stop
-        :href="$url(`/resources/product-dimensions/${value}`)"
+        :href="$url(`/resources/${field.attribute}/${value}`)"
         class="link-default"
       >
         {{ value }}<span v-if="i+1 != field.value.length">, </span>
@@ -33,6 +33,8 @@
 
 <script>
 import HandlesFieldValue from '../mixins/HandlesFieldValue';
+
+  console.log(field);
 
 export default {
   mixins: [HandlesFieldValue],
