@@ -34,6 +34,8 @@
 <script>
 import HandlesFieldValue from '../mixins/HandlesFieldValue';
 
+console.log(field)
+
 export default {
   mixins: [HandlesFieldValue],
 
