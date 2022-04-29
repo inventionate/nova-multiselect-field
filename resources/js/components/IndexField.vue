@@ -20,6 +20,8 @@
 
     {{ value }}
 
+    {{ field.attribute }}
+
         <!--<Link
           @click.stop
             :href="$url(`/resources/${resourceName}/${Array.isArray(field.value) ? field.value[i]
