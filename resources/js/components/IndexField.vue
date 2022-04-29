@@ -20,10 +20,10 @@
     <span v-for="(value, i) of field.value" :key="i">
       <Link
         @click.stop
-        :href="$url(`/resources/${field.attribute}/${value}`)"
+        :href="$url(`/resources/${str.replace(/[A-Z]/g, letter => `-${field.attribute.toLowerCase()}`)}/${value}`)"
         class="link-default"
       >
-        {{ value }}<span v-if="i+1 != field.value.length">, </span>
+        {{ field.options.label[i] }}<span v-if="i+1 != field.value.length">, </span>
           {{ valueNew }}
       </Link>
     </span>
