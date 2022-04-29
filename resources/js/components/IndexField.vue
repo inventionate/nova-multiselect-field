@@ -18,9 +18,7 @@
   <span v-else-if="!field.asHtml">
     <!-- Hier muss man checken, ob es sich um eine Relation handelt, die eine mehrfache bearbeitung erdodert -->
 
-    {{ field.value }}
-
-    {{ console.log(field) }}
+    {{ value }}
 
         <!--<Link
           @click.stop
@@ -44,6 +42,9 @@ export default {
 
   computed: {
     value() {
+
+      console.log(this.field);
+
       if (this.isMultiselect) {
         const valuesArray = this.getInitialFieldValuesArray();
         if (!valuesArray || !valuesArray.length) return '—';
