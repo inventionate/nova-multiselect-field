@@ -17,7 +17,6 @@
         >
           {{ value }}
         </Link>
-        {{ value }}
       </div>
     </div>
   </div>
