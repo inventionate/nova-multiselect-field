@@ -1,25 +1,14 @@
 <template>
-  <div
-    class="multiselect-detail-field-value"
-    v-if="values"
-  >
-    <div class="overflow-hidden rounded-lg">
-      <div
-        class="multiselect-detail-row"
-        v-for="(value, i) of values"
-        :key="i"
+  <ul class="" v-if="values">
+    <li class="" v-for="(value, i) of values" :key="i">
+      <Link
+        :href="$url(`/resources/${resourceName}/${Array.isArray(field.value) ? field.value[i]: field.value.replace(/[\[\]']+/g,'')}`)"
+        class="link-default"
       >
-        <Link
-          @click.stop
-          v-if="hasValue && resource.authorizedToView"
-          :href="$url(`/resources/${resourceName}/${resource.id.value}`)"
-          class="link-default"
-        >
-          {{ value }}
-        </Link>
-      </div>
-    </div>
-  </div>
+        {{ value }}
+      </Link>
+    </li>
+  </ul>
 
   <div v-else>—</div>
 </template>
