@@ -19,8 +19,8 @@
 
     <span v-for="(value, i) of field.value" :key="i">
       <Link
-        :href="$url(`/resources/${field.attribute}/${Array.isArray(field.value) ? field.value[i]: field.value.replace(/[\[\]']+/g,'')}`)"
-        class="link-default z-40"
+        :href="$url(`/resources/${field.attribute}/${value}`)"
+        class="link-default"
       >
         {{ value }}
       </Link>
