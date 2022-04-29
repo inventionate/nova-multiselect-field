@@ -17,16 +17,14 @@
   </div>
   <span v-else-if="!field.asHtml">
 
-  <ul>
-    <li v-for="(value, i) of field.value" :key="i">
+    <span v-for="(value, i) of field.value" :key="i">
       <Link
         :href="$url(`/resources/${field.attribute}/${Array.isArray(field.value) ? field.value[i]: field.value.replace(/[\[\]']+/g,'')}`)"
-        class="link-default"
+        class="link-default z-40"
       >
         {{ value }}
       </Link>
-    </li>
-  </ul>
+    </span>
 
   </span>
   <span v-else v-html="value"></span>
