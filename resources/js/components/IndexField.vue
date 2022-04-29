@@ -18,9 +18,10 @@
   <span v-else-if="!field.asHtml">
     <!-- Hier muss man checken, ob es sich um eine Relation handelt, die eine mehrfache bearbeitung erdodert -->
 
-    {{ value }}
+    {{ field.value }}
 
     {{ field.attribute }}
+
 
         <!--<Link
           @click.stop
