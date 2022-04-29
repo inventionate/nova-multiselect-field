@@ -10,7 +10,7 @@
       </Link>
 
       <nova-multiselect-detail-field-value v-else-if="isMultiselect" :field="field" :values="values"
-        :resourceName="resourceName" />
+        :resourceName="resourceName" :resource="resource" />
 
       <div v-else>{{ (value && value.label) || '—' }}</div>
     </template>

@@ -1,14 +1,22 @@
 <template>
   <div
-    class="multiselect-detail-field-value relative rounded-lg border bg-white dark:bg-gray-900 dark:border-gray-700"
+    class="multiselect-detail-field-value"
     v-if="values"
   >
     <div class="overflow-hidden rounded-lg">
       <div
-        class="multiselect-detail-row border-b dark:border-gray-700 cursor-text font-mono text-sm py-2 px-4"
+        class="multiselect-detail-row"
         v-for="(value, i) of values"
         :key="i"
       >
+        <Link
+          @click.stop
+          v-if="hasValue && resource.authorizedToView"
+          :href="$url(`/resources/${resourceName}/${resource.id.value}`)"
+          class="link-default"
+        >
+          {{ value }}
+        </Link>
         {{ value }}
       </div>
     </div>
@@ -19,16 +27,6 @@
 
 <script>
 export default {
-  props: ['field', 'values', 'resourceName'],
+  props: ['field', 'values', 'resourceName', 'resource'],
 };
 </script>
-
-<style lang="scss" scoped>
-.multiselect-detail-field-value {
-  .multiselect-detail-row {
-    &:last-child {
-      border-bottom: none;
-    }
-  }
-}
-</style>
