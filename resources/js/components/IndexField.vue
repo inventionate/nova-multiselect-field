@@ -18,20 +18,18 @@
   <span v-else-if="!field.asHtml">
     <!-- Hier muss man checken, ob es sich um eine Relation handelt, die eine mehrfache bearbeitung erdodert -->
 
-    {{ field }}
+    {{ field.value }}
 
     {{ console.log(field) }}
 
-    {{ console.log(field.value) }}
-
-        <Link
+        <!--<Link
           @click.stop
             :href="$url(`/resources/${resourceName}/${Array.isArray(field.value) ? field.value[i]
 : field.value.replace(/[\[\]']+/g,'')}`)"
             class="link-default"
         >
           {{ Array.isArray(field.value) ? field.value[i]: field.value.replace(/[\[\]']+/g,'') }}
-        </Link>
+        </Link>-->
   </span>
   <span v-else v-html="value"></span>
 </template>
