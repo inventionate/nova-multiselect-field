@@ -16,21 +16,18 @@
     </span>
   </div>
   <span v-else-if="!field.asHtml">
-    <!-- Hier muss man checken, ob es sich um eine Relation handelt, die eine mehrfache bearbeitung erdodert -->
 
-    {{ field.value }}
+  <ul class="" v-if="field.value">
+    <li class="" v-for="(value, i) of values" :key="i">
+      <Link
+        :href="$url(`/resources/${field.attribute}/${Array.isArray(field.value) ? field.value[i]: field.value.replace(/[\[\]']+/g,'')}`)"
+        class="link-default"
+      >
+        {{ value }}
+      </Link>
+    </li>
+  </ul>
 
-    {{ field.attribute }}
-
-
-        <!--<Link
-          @click.stop
-            :href="$url(`/resources/${resourceName}/${Array.isArray(field.value) ? field.value[i]
-: field.value.replace(/[\[\]']+/g,'')}`)"
-            class="link-default"
-        >
-          {{ Array.isArray(field.value) ? field.value[i]: field.value.replace(/[\[\]']+/g,'') }}
-        </Link>-->
   </span>
   <span v-else v-html="value"></span>
 </template>
@@ -44,7 +41,7 @@ export default {
   props: ['resourceName', 'field'],
 
   computed: {
-    value() {
+    valueNew() {
 
       console.log(this.field);
 
