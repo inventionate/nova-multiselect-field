@@ -2,25 +2,11 @@
   <div :class="`text-${field.textAlign}`" v-if="field.belongsToResourceName && field.viewable && field.value">
     <span>
       <span v-if="field.viewable && field.value">
-        <router-link
-          :to="{
-            name: 'detail',
-            params: {
-              resourceName: field.belongsToResourceName,
-              resourceId: field.value,
-            },
-          }"
-          class="no-underline dim text-primary font-bold"
-        >
-          {{ field.belongsToDisplayValue }}
-        </router-link>
-      </span>
-
-      <span v-else-if="field.value">
         <Link
           @click.stop
-          :href="$url(`/resources/${field.ResourceName}/${field.value}`)"
-          class="no-underline dim text-primary font-bold"
+            :href="$url(`/resources/${field.belongsToResourceName}/${Array.isArray(field.value) ? field.value[i]
+: field.value.replace(/[\[\]']+/g,'')}`)"
+            class="link-default"
         >
           {{ field.value }}
         </Link>
@@ -36,7 +22,7 @@
 : field.value.replace(/[\[\]']+/g,'')}`)"
             class="link-default"
         >
-          {{ field.value }}
+          {{ Array.isArray(field.value) ? field.value[i]: field.value.replace(/[\[\]']+/g,'') }}
         </Link>
   </span>
   <span v-else v-html="value"></span>

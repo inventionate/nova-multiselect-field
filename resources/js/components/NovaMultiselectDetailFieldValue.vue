@@ -1,4 +1,6 @@
 <template>
+<!-- @TODO: gilt für alle Detailansichten, daher checken, ob es sich um eine belongstomany oder keine relation
+  handelt!-->
   <ul class="" v-if="values">
     <li class="" v-for="(value, i) of values" :key="i">
       <Link
