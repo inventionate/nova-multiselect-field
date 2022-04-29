@@ -24,10 +24,9 @@
         class="link-default"
       >
 <!--        {{ field.options[i].label }}<span v-if="i+1 != field.value.length">, </span>-->
-          {{ valueNew }}
+      </Link>
           {{ resourceUri }}
           {{ resourceName }}
-      </Link>
     </span>
 
   </span>
@@ -44,13 +43,11 @@ export default {
 
   computed: {
     resourceUri() {
-      var result = field.attribute.replace( /([A-Z])/g, " $1" );
+      console.log(this.field);
+      var result = this.field.attribute.replace( /([A-Z])/g, " $1" );
       return result.split(' ').join('-').toLowerCase();
     },
     valueNew() {
-
-      console.log(this.field);
-
       if (this.isMultiselect) {
         const valuesArray = this.getInitialFieldValuesArray();
         if (!valuesArray || !valuesArray.length) return '—';
