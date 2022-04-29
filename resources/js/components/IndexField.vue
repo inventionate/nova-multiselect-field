@@ -19,6 +19,7 @@
 
     <span v-for="(value, i) of field.value" :key="i">
       <Link
+        @click.stop
         :href="$url(`/resources/${field.attribute}/${value}`)"
         class="link-default"
       >
