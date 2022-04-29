@@ -16,6 +16,14 @@
     </span>
   </div>
   <span v-else-if="!field.asHtml">
+    <!-- Hier muss man checken, ob es sich um eine Relation handelt, die eine mehrfache bearbeitung erdodert -->
+
+    {{ field }}
+
+    {{ console.log(field) }}
+
+    {{ console.log(field.value) }}
+
         <Link
           @click.stop
             :href="$url(`/resources/${resourceName}/${Array.isArray(field.value) ? field.value[i]
