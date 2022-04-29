@@ -9,6 +9,7 @@
             class="link-default"
         >
           {{ field.value }}
+          {{ valueNew }}
         </Link>
       </span>
 
