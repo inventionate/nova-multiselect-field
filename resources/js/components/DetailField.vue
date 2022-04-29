@@ -9,7 +9,8 @@
         {{ field.belongsToDisplayValue }}
       </Link>
 
-      <nova-multiselect-detail-field-value v-else-if="isMultiselect" :field="field" :values="values" />
+      <nova-multiselect-detail-field-value v-else-if="isMultiselect" :field="field" :values="values"
+        :resourceName="resourceName" />
 
       <div v-else>{{ (value && value.label) || '—' }}</div>
     </template>

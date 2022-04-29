@@ -17,7 +17,7 @@
       </span>
 
       <span v-else-if="field.value">
-    k
+        <Link
           @click.stop
           :href="$url(`/resources/${field.ResourceName}/${field.value}`)"
           class="no-underline dim text-primary font-bold"
