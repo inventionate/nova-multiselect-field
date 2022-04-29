@@ -17,8 +17,8 @@
   </div>
   <span v-else-if="!field.asHtml">
 
-  <ul class="" v-if="field.value">
-    <li class="" v-for="(value, i) of values" :key="i">
+  <ul>
+    <li v-for="(value, i) of field.value" :key="i">
       <Link
         :href="$url(`/resources/${field.attribute}/${Array.isArray(field.value) ? field.value[i]: field.value.replace(/[\[\]']+/g,'')}`)"
         class="link-default"
