@@ -20,11 +20,13 @@
     <span v-for="(value, i) of field.value" :key="i">
       <Link
         @click.stop
-        :href="$url(`/resources/${str.replace(/[A-Z]/g, letter => `-${field.attribute.toLowerCase()}`)}/${value}`)"
+        :href="$url(`/resources/${resourceName}/${value}`)"
         class="link-default"
       >
         {{ field.options.label[i] }}<span v-if="i+1 != field.value.length">, </span>
           {{ valueNew }}
+          {{ resourceUri }}
+          {{ resourceName }}
       </Link>
     </span>
 
@@ -41,6 +43,10 @@ export default {
   props: ['resourceName', 'field'],
 
   computed: {
+    resourceUri() {
+      var result = field.attribute.replace( /([A-Z])/g, " $1" );
+      return result.split(' ').join('-').toLowerCase();
+    },
     valueNew() {
 
       console.log(this.field);
