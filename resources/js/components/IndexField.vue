@@ -9,7 +9,6 @@
             class="link-default"
         >
           {{ field.value }}
-          {{ valueNew }}
         </Link>
       </span>
 
@@ -25,6 +24,7 @@
         class="link-default"
       >
         {{ value }}<span v-if="i+1 != field.value.length">, </span>
+          {{ valueNew }}
       </Link>
     </span>
 
