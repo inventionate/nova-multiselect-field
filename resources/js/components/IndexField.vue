@@ -24,8 +24,9 @@
         class="link-default"
       >
         {{value}}
-        {{value.label}}
-      {{ field.options[i]['label'] }}<span v-if="i+2 != field.value.length">, </span>
+        {{i}}
+        {{field.value.label}}
+      <!--{{ field.options[i]['label'] }}<span v-if="i+2 != field.value.length">, </span>-->
       </Link>
     </span>
 
