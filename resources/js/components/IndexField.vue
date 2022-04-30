@@ -25,7 +25,9 @@
       >
         {{value}}
         {{i}}
-        {{field.value.label}}
+        {{field.options[value]}}
+
+        {{field.options}}
       <!--{{ field.options[i]['label'] }}<span v-if="i+2 != field.value.length">, </span>-->
       </Link>
     </span>
