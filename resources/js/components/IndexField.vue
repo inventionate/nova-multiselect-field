@@ -20,11 +20,12 @@
     <span v-for="(value, i) of values" :key="i">
       <Link
         @click.stop
-        :href="$url(`/resources/${resourceUri}/${value['value']}`)"
+        :href="$url(`/resources/${resourceUri}/${value.value}`)"
         class="link-default"
       >
-        {{value.label}}
-        {{value['label']}}<span v-if="i+2 != values.length">, </span>
+        {{ i }}
+        {{values.length}}
+        {{value.label}}<span v-if="i+2 != values.length">, </span>
       </Link>
     </span>
 
