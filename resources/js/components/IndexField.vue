@@ -23,6 +23,8 @@
         :href="$url(`/resources/${resourceUri}/${value}`)"
         class="link-default"
       >
+        {{valueNew}}
+        // bei false / async werden alle Optionen geladen. Deshalb muss das mit dem Label anders gelöst werden.
       {{ field.options[i]['label'] }}<span v-if="i+1 != field.value.length">, </span>
       </Link>
     </span>
