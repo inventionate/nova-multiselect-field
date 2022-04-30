@@ -23,8 +23,7 @@
         :href="$url(`/resources/${resourceUri}/${value}`)"
         class="link-default"
       >
-        {{value}}
-        {{ field.options[Number(value)-1]['label'] }}<span v-if="Number(value)+1 != field.value.length">, </span>
+      {{ field.options[i]['label'] }}<span v-if="i+1 != field.value.length">, </span>
       </Link>
     </span>
 
@@ -38,12 +37,11 @@ import HandlesFieldValue from '../mixins/HandlesFieldValue';
 export default {
   mixins: [HandlesFieldValue],
 
-  props: ['resource', 'resourceName', 'field'],
+  props: ['resourceName', 'field'],
 
   computed: {
     resourceUri() {
-      console.log(this.field);
-      // console.log(this.resource);
+     // console.log(this.field);
       var result = this.field.attribute.replace( /([A-Z])/g, " $1" );
       return result.split(' ').join('-').toLowerCase();
     },
