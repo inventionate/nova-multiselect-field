@@ -23,7 +23,8 @@
         :href="$url(`/resources/${resourceUri}/${value}`)"
         class="link-default"
       >
-      {{ field.options[i]['label'] }}<span v-if="i+1 != field.value.length">, </span>
+        {{ value }}
+      <!--{{ field.options[i]['label'] }}<span v-if="i+2 != field.value.length">, </span>-->
       </Link>
     </span>
 
@@ -42,7 +43,7 @@ export default {
   computed: {
     resourceUri() {
       console.log(this.field);
-      console.log(this.resource);
+      // console.log(this.resource);
       var result = this.field.attribute.replace( /([A-Z])/g, " $1" );
       return result.split(' ').join('-').toLowerCase();
     },
