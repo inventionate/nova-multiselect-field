@@ -37,11 +37,12 @@ import HandlesFieldValue from '../mixins/HandlesFieldValue';
 export default {
   mixins: [HandlesFieldValue],
 
-  props: ['resourceName', 'field'],
+  props: ['resource', 'resourceName', 'field'],
 
   computed: {
     resourceUri() {
       console.log(this.field);
+      console.log(this.resource);
       var result = this.field.attribute.replace( /([A-Z])/g, " $1" );
       return result.split(' ').join('-').toLowerCase();
     },
