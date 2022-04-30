@@ -23,7 +23,8 @@
         :href="$url(`/resources/${resourceUri}/${value['value']}`)"
         class="link-default"
       >
-        {{value['label']}}<span v-if="i+2 != field.value.length">, </span>
+        {{value.label}}
+        {{value['label']}}<span v-if="i+2 != values.length">, </span>
       </Link>
     </span>
 
