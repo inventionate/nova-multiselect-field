@@ -17,15 +17,14 @@
   </div>
   <span v-else-if="!field.asHtml">
 
-    <span v-for="(value, i) of field.value" :key="i">
+    <span v-for="(value, i) of values" :key="i">
       <Link
         @click.stop
         :href="$url(`/resources/${resourceUri}/${value}`)"
         class="link-default"
       >
-        {{valueNew}}
-        // bei false / async werden alle Optionen geladen. Deshalb muss das mit dem Label anders gelöst werden.
-      {{ field.options[i]['label'] }}<span v-if="i+1 != field.value.length">, </span>
+        {{value}}
+      <!--{{ field.options[i]['label'] }}<span v-if="i+1 != field.value.length">, </span>-->
       </Link>
     </span>
 
@@ -47,7 +46,16 @@ export default {
       var result = this.field.attribute.replace( /([A-Z])/g, " $1" );
       return result.split(' ').join('-').toLowerCase();
     },
-    valueNew() {
+    values() {
+        const valuesArray = this.getInitialFieldValuesArray();
+        if (!valuesArray || !valuesArray.length) return '—';
+
+      const values = valuesArray
+          .map(this.getValueFromOptions);
+
+      return values;
+    },
+    value() {
       if (this.isMultiselect) {
         const valuesArray = this.getInitialFieldValuesArray();
         if (!valuesArray || !valuesArray.length) return '—';
@@ -57,11 +65,11 @@ export default {
           .filter(Boolean)
           .map(val => `${this.isOptionGroups ? `[${val.group}] ` : ''}${val.label}`);
 
-        const joinedValues = values.join(this.delimiter);
+        //const joinedValues = values.join(this.delimiter);
 
-        if (this.valueDisplayLimit >= values.length && this.charDisplayLimit >= joinedValues.length) {
-          return joinedValues;
-        }
+        //if (this.valueDisplayLimit >= values.length && this.charDisplayLimit >= joinedValues.length) {
+        //  return joinedValues;
+        // }
 
         return this.__('novaMultiselect.nItemsSelected', { count: String(values.length || '') });
       } else {
